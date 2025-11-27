@@ -19,40 +19,12 @@ rho_sl, p_sl = spearmanr(df['Sleep_Hours'], df['Exam_Score'])
 print(f"Spearman rho (Sleep): {rho_sl:.4f}, p-value: {p_sl:.6f}")
 
 
-'''
 X = df[['Physical_Activity', 'Sleep_Hours']]
 y = df['Exam_Score']
 
 X = sm.add_constant(X)
 model = sm.OLS(y, X).fit()
 print(model.summary())
-'''
-
-df['Sleep_Group'] = pd.qcut(
-    df['Sleep_Hours'], q=4,
-    labels=['Very Low','Low','Medium','High']
-)
-
-df['Activity_Group'] = pd.qcut(
-    df['Physical_Activity'], q=4,
-    labels=['Very Low','Low','Medium','High']
-)
-
-from scipy.stats import kruskal
-
-sleep_groups = [df[df['Sleep_Group'] == level]['Exam_Score'] 
-                for level in df['Sleep_Group'].cat.categories]
-
-activity_groups = [df[df['Activity_Group'] == level]['Exam_Score'] 
-                   for level in df['Activity_Group'].cat.categories]
-
-sleep_H, sleep_p = kruskal(*sleep_groups)
-activity_H, activity_p = kruskal(*activity_groups)
-
-print(f"Sleep KW: H = {sleep_H:.3f}, p = {sleep_p:.6f}")
-print(f"Activity KW: H = {activity_H:.3f}, p = {activity_p:.6f}")
-
-
 
 
 '''

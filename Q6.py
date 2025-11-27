@@ -66,7 +66,7 @@ print(f"p-value = {p_value:.6f}")
 '''
 To examine whether exam performance increases with more positive peer influence, a Jonckheere–Terpstra 
 trend test was conducted with Peer Influence treated as an ordered factor (Negative < Neutral < Positive).
-The test indicated a statistically significant positive monotonic trend in exam scores across the levels 
+The test indicated a moderately positive monotonic trend in exam scores across the levels 
 of peer influence (JT = 7,770,018.5, z = 9.00, p < 0.001).
 
 This result suggests that students who report more positive peer influence tend to achieve higher exam scores, 
